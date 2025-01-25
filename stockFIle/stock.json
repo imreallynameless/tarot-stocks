@@ -1,0 +1,99 @@
+{
+    "ISTJ": {
+      "Stocks": ["JNJ", "PG"],
+      "Options": ["Covered calls on SPY"],
+      "Crypto": ["BTC"],
+      "Bonds": ["US Treasury Bonds (10-year)", "BND"]
+    },
+    "ISFJ": {
+      "Stocks": ["AAPL", "KO"],
+      "Options": ["Protective puts on XLV"],
+      "Crypto": ["ADA"],
+      "Bonds": ["Municipal Bonds", "AGG"]
+    },
+    "INFJ": {
+      "Stocks": ["TSLA", "ENPH"],
+      "Options": ["Long calls on ICLN"],
+      "Crypto": ["ETH", "SOL"],
+      "Bonds": ["Green Bonds", "GRNB"]
+    },
+    "INTJ": {
+      "Stocks": ["MSFT", "AMZN"],
+      "Options": ["Calendar spreads on NVDA"],
+      "Crypto": ["BTC", "LINK"],
+      "Bonds": ["Short-term corporate bonds", "TIP"]
+    },
+    "ISTP": {
+      "Stocks": ["AMD", "BA"],
+      "Options": ["Short straddles on TSLA"],
+      "Crypto": ["DOGE", "LTC"],
+      "Bonds": ["High-yield corporate bonds"]
+    },
+    "ISFP": {
+      "Stocks": ["DIS", "NKE"],
+      "Options": ["Cash-secured puts on ETSY"],
+      "Crypto": ["FLOW"],
+      "Bonds": ["Intermediate-term government bonds"]
+    },
+    "INFP": {
+      "Stocks": ["PLTR", "BE"],
+      "Options": ["Protective puts on ARKK"],
+      "Crypto": ["ALGO", "ETH"],
+      "Bonds": ["ESG Bonds", "SUSA"]
+    },
+    "INTP": {
+      "Stocks": ["GOOGL", "SQ"],
+      "Options": ["Iron condors on QQQ"],
+      "Crypto": ["AVAX", "BTC"],
+      "Bonds": ["Floating-rate bonds"]
+    },
+    "ESTP": {
+      "Stocks": ["TSLA", "NFLX"],
+      "Options": ["Naked calls on AMD"],
+      "Crypto": ["SOL", "SHIB"],
+      "Bonds": ["Minimal allocation to corporate bonds"]
+    },
+    "ESFP": {
+      "Stocks": ["AMZN", "DIS"],
+      "Options": ["Covered calls on SPY"],
+      "Crypto": ["ETH", "FLOW"],
+      "Bonds": ["Corporate bonds", "AGG"]
+    },
+    "ENFP": {
+      "Stocks": ["SQ", "CRWD"],
+      "Options": ["Long calls on ARKK"],
+      "Crypto": ["DOT", "ETH"],
+      "Bonds": ["Green Bonds"]
+    },
+    "ENTP": {
+      "Stocks": ["TSLA", "NVDA"],
+      "Options": ["Bull call spreads on QQQ"],
+      "Crypto": ["BTC", "SOL"],
+      "Bonds": ["Minimal allocation to government bonds"]
+    },
+    "ESTJ": {
+      "Stocks": ["V", "JNJ"],
+      "Options": ["Low-risk covered calls on SPY"],
+      "Crypto": ["BTC"],
+      "Bonds": ["US Treasury Bonds", "BND"]
+    },
+    "ESFJ": {
+      "Stocks": ["KO", "AAPL"],
+      "Options": ["Protective puts on XLV"],
+      "Crypto": ["ADA"],
+      "Bonds": ["Municipal Bonds", "AGG"]
+    },
+    "ENTJ": {
+      "Stocks": ["NVDA", "BA"],
+      "Options": ["Bull call spreads on SPY"],
+      "Crypto": ["BTC", "ETH"],
+      "Bonds": ["Corporate bonds with high ratings"]
+    },
+    "ENFJ": {
+      "Stocks": ["CRM", "ENPH"],
+      "Options": ["Long calls on ICLN"],
+      "Crypto": ["ETH", "DOT"],
+      "Bonds": ["Green Bonds", "GRNB"]
+    }
+  }
+  
