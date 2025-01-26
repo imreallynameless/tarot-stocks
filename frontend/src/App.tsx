@@ -20,7 +20,6 @@ function App() {
           <Route path="/mbti" element={<Mbti/>} />
         </Routes>
 
-      {/* <QuestionBox question="How much do you like React?" /> */}
     </BrowserRouter>
   )
 }

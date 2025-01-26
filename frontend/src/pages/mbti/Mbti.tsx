@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import QuestionBox from '../../components/QuestionBox'; // Import the QuestionBox component
+import './App.css'
 
 type Option = {
   text: string;
@@ -12,7 +13,7 @@ type QuizItem = {
   options: Option[];
 };
 
-const App: React.FC = () => {
+const Mbti: React.FC = () => {
   const [quizData, setQuizData] = useState<QuizItem[]>([]);
   const [error, setError] = useState<string | null>(null);
   const [loading, setLoading] = useState<boolean>(true); // Loading state
@@ -57,7 +58,8 @@ const App: React.FC = () => {
   }
 
   return (
-    <div style={{ backgroundColor: '#fff', minHeight: '100vh', padding: '20px' }}>
+    
+    <div style={{ backgroundColor: '#fff', minHeight: '100vh', padding: '20px' , paddingTop: '8rem'}}>
       {error && <p>{error}</p>}
       <div style={{ maxHeight: '80vh', overflowY: 'auto' }}>
         {quizData.length > 0 ? (
@@ -100,4 +102,4 @@ const App: React.FC = () => {
   );
 };
 
-export default App;
+export default Mbti;
