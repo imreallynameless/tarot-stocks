@@ -4,6 +4,7 @@ import { Label1, Label2 } from '../constants/Labels'
 import { Button1 } from '../constants/Buttons'
 import { Link, useNavigate } from 'react-router-dom'
 import { css, keyframes } from '@emotion/react'
+
 const NavBar = () => {
   const navigate = useNavigate();
   const [ hoveredTab, setHoveredTab] = useState(0);
@@ -41,9 +42,9 @@ const NavBar = () => {
         <NavBarSubContainer>
           <Button1 className='justify-self: end; cursor: pointer;'
           onClick={() =>
-            navigate("/mbti")
+            navigate("/results")
           }>
-            MBTI
+            Results
           </Button1>
         </NavBarSubContainer>
         <div></div>

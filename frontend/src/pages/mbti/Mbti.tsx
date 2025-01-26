@@ -1,8 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import QuestionBox from '../../components/QuestionBox'; // Import the QuestionBox component
-import {Button1} from '../../constants/Buttons'
-import { Link, useNavigate } from 'react-router-dom'
-import './App.css'
+import { useNavigate } from 'react-router-dom';
 import styled from '@emotion/styled';
 
 type Option = {
@@ -22,8 +20,8 @@ const Mbti: React.FC = () => {
   const [error, setError] = useState<string | null>(null);
   const [loading, setLoading] = useState<boolean>(true); // Loading state
   const [selectedAnswers, setSelectedAnswers] = useState<{ [key: string]: number | null }>({});
-  const [showAnswers, setShowAnswers] = useState(false); // To toggle the display of answers
 
+  // Fetch quiz data on component mount
   useEffect(() => {
     const fetchQuizData = async () => {
       try {
@@ -44,6 +42,7 @@ const Mbti: React.FC = () => {
     fetchQuizData();
   }, []);
 
+  // Handle answer selection for each question
   const handleSelectAnswer = (id: string, value: number) => {
     setSelectedAnswers((prevAnswers) => ({
       ...prevAnswers,
@@ -51,18 +50,48 @@ const Mbti: React.FC = () => {
     }));
   };
 
-  const handleSubmit = () => {
-    setShowAnswers(true); // Show the answers when the button is clicked
+  // Submit answers and navigate to the results page
+  const handleSubmit = async () => {
+    // Check if all questions are answered
+    const allAnswered = quizData.every((quizItem) => selectedAnswers[quizItem.id] !== null);
+
+    if (!allAnswered) {
+      alert('Please answer all questions before submitting.');
+      return;
+    }
+
+    try {
+      const response = await fetch('http://127.0.0.1:8000/get_results', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({ answers: selectedAnswers }),
+      });
+
+      if (!response.ok) {
+        throw new Error('Failed to fetch results');
+      }
+
+      const data = await response.json();
+
+      // Save data to local storage for persistence
+      localStorage.setItem('personalityData', JSON.stringify(data));
+
+      // Navigate to results with the data
+      navigate('/results', { state: { personalityData: data } });
+    } catch (error) {
+      console.error('Error submitting answers:', error);
+    }
   };
 
-  const allAnswered = quizData.every((quizItem) => selectedAnswers[quizItem.id] !== null);
-
+  // Render a loading state while fetching quiz data
   if (loading) {
-    return <div>Loading quiz...</div>; // Show loading message
+    return <div>Loading quiz...</div>;
   }
 
+  // Render the component
   return (
-    
     <MainSection>
       {error && <p>{error}</p>}
       <QuestionSection>
@@ -71,47 +100,40 @@ const Mbti: React.FC = () => {
             <QuestionBox
               key={quizItem.id}
               question={quizItem.text}
-            //   options={quizItem.options}
-            //   id={quizItem.id}
-            //   onSelectAnswer={handleSelectAnswer}
+              options={quizItem.options}
+              id={quizItem.id}
+              onSelectAnswer={handleSelectAnswer}
             />
           ))
         ) : (
           <p>No quiz data available.</p>
         )}
       </QuestionSection>
-      <SubmitSection >
-          <SubmitButton
-            onClick={() =>
-                navigate("/results")
-            }>
-            Submit Answers
-          </SubmitButton>
+      <SubmitSection>
+        <SubmitButton onClick={handleSubmit}>Submit Answers</SubmitButton>
       </SubmitSection>
-      {showAnswers && (
-        <div style={{ marginTop: '20px', textAlign: 'center', maxHeight: '40vh', overflowY: 'auto' }}>
-          <h3>Selected Answers:</h3>
-          <pre>{JSON.stringify(selectedAnswers, null, 2)}</pre>
-        </div>
-      )}
     </MainSection>
   );
 };
 
+export default Mbti;
+
+// Styled Components
 const MainSection = styled.div`
-    display: flex;
-    flex-direction: column;
-    padding-top: 50px;
-    padding-bottom: 50px;
-`
+  display: flex;
+  flex-direction: column;
+  padding-top: 50px;
+  padding-bottom: 50px;
+`;
+
 const QuestionSection = styled.div`
-    padding-botom: 10rem;
-    padding-top: 5rem;
-    overflow-y: scroll;
-    display: flex;
-    flex-direction: column;
-    height: 100vh;
-`
+  padding-bottom: 10rem;
+  padding-top: 5rem;
+  overflow-y: auto;
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+`;
 
 const SubmitSection = styled.div`
   position: fixed;
@@ -124,13 +146,13 @@ const SubmitSection = styled.div`
   padding-bottom: 30px;
   height: 50px;
   background-color: rgb(40, 40, 40);
-`
+`;
 
-const SubmitButton = styled.div`
-background-image: linear-gradient(to bottom right, #44A2B1, #C15A93);
+const SubmitButton = styled.button`
+  background-image: linear-gradient(to bottom right, #44a2b1, #c15a93);
   overflow: hidden;
   position: relative;
-  height: 22px;
+  height: 40px;
   cursor: pointer;
   justify-content: center;
   align-items: center;
@@ -140,35 +162,11 @@ background-image: linear-gradient(to bottom right, #44A2B1, #C15A93);
   font-size: 17px;
   border-radius: 10px;
   font-weight: 500;
-  padding: 10px;
-  padding-left: 30px;
-  padding-right: 30px;
-  ${(props) => props.className}
+  padding: 10px 30px;
+  border: none;
 
-  span {
-    z-index: 20;
+  &:hover {
+    opacity: 0.9;
   }
+`;
 
-  &:after {
-    background: #fff;
-    content: "";
-    height: 155px;
-    left: -75px;
-    opacity: .2;
-    position: absolute;
-    top: -50px;
-    transform: rotate(35deg);
-    transition: all 550ms cubic-bezier(0.19, 1, 0.22, 1);
-    width: 50px;
-  }
-
-  :hover {
-    
-    &:after {
-      left: 120%;
-      transition: all 550ms cubic-bezier(0.19, 1, 0.22, 1);
-    }
-  }
-`
-
-export default Mbti;
