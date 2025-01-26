@@ -64,3 +64,11 @@ async def get_quiz():
     ]
 
     return formatted_questions
+
+@app.get("/get_results/{mbti}")
+async def get_results(mbti):
+    E, S, T, J = 0, 0, 0, 0
+
+
+
+    

@@ -1,0 +1,77 @@
+{
+    "questionsByPersonality": {
+      "E/I (Extraversion vs. Introversion)": [
+        {
+          "id": "WW91IHVzdWFsbHkgd2FpdCBmb3Igb3RoZXJzIHRvIGludHJvZHVjZSB0aGVtc2VsdmVzIGZpcnN0IGF0IHNvY2lhbCBnYXRoZXJpbmdzLg==",
+          "text": "You usually wait for others to introduce themselves first at social gatherings.",
+          "result": "-"
+        },
+        {
+          "id": "WW91IHVzdWFsbHkgcHJlZmVyIHRvIGJlIGFyb3VuZCBvdGhlcnMgcmF0aGVyIHRoYW4gb24geW91ciBvd24u",
+          "text": "You usually prefer to be around others rather than on your own.",
+          "result": "+E"
+        },
+        {
+          "id": "WW91ciBmcmllbmRzIHdvdWxkIGRlc2NyaWJlIHlvdSBhcyBsaXZlbHkgYW5kIG91dGdvaW5nLg==",
+          "text": "Your friends would describe you as lively and outgoing."
+        }
+      ],
+      "S/N (Sensing vs. Intuition)": [
+        {
+          "id": "WW91IGJlY29tZSBib3JlZCBvciBsb3NlIGludGVyZXN0IHdoZW4gdGhlIGRpc2N1c3Npb24gZ2V0cyBoaWdobHkgdGhlb3JldGljYWwu",
+          "text": "You become bored or lose interest when the discussion gets highly theoretical."
+        },
+        {
+          "id": "WW91IGFyZSBkcmF3biB0byB2YXJpb3VzIGZvcm1zIG9mIGNyZWF0aXZlIGV4cHJlc3Npb24sIHN1Y2ggYXMgd3JpdGluZy4=",
+          "text": "You are drawn to various forms of creative expression, such as writing."
+        }
+      ],
+      "T/F (Thinking vs. Feeling)": [
+        {
+          "id": "SW4gZGlzYWdyZWVtZW50cywgeW91IHByaW9yaXRpemUgcHJvdmluZyB5b3VyIHBvaW50IG92ZXIgcHJlc2VydmluZyB0aGUgZmVlbGluZ3Mgb2Ygb3RoZXJzLg==",
+          "text": "In disagreements, you prioritize proving your point over preserving the feelings of others."
+        },
+        {
+          "id": "WW91IGFyZSBub3QgZWFzaWx5IHN3YXllZCBieSBlbW90aW9uYWwgYXJndW1lbnRzLg==",
+          "text": "You are not easily swayed by emotional arguments."
+        },
+        {
+          "id": "V2hlbiBmYWN0cyBhbmQgZmVlbGluZ3MgY29uZmxpY3QsIHlvdSB1c3VhbGx5IGZpbmQgeW91cnNlbGYgZm9sbG93aW5nIHlvdXIgaGVhcnQu",
+          "text": "When facts and feelings conflict, you usually find yourself following your heart."
+        },
+        {
+          "id": "WW91IHVzdWFsbHkgYmFzZSB5b3VyIGNob2ljZXMgb24gb2JqZWN0aXZlIGZhY3RzIHJhdGhlciB0aGFuIGVtb3Rpb25hbCBpbXByZXNzaW9ucy4=",
+          "text": "You usually base your choices on objective facts rather than emotional impressions."
+        },
+        {
+          "id": "WW91IGVuam95IGRlYmF0aW5nIGV0aGljYWwgZGlsZW1tYXMu",
+          "text": "You enjoy debating ethical dilemmas."
+        }
+      ],
+      "J/P (Judging vs. Perceiving)": [
+        {
+          "id": "WW91IHByZWZlciB0byBkbyB5b3VyIGNob3JlcyBiZWZvcmUgYWxsb3dpbmcgeW91cnNlbGYgdG8gcmVsYXgu",
+          "text": "You prefer to do your chores before allowing yourself to relax."
+        },
+        {
+          "id": "WW91IG9mdGVuIGVuZCB1cCBkb2luZyB0aGluZ3MgYXQgdGhlIGxhc3QgcG9zc2libGUgbW9tZW50Lg==",
+          "text": "You often end up doing things at the last possible moment."
+        },
+        {
+          "id": "WW91IGZpbmQgaXQgY2hhbGxlbmdlcyB0byBtYWludGFpbiBhIGNvbnNpc3RlbnQgd29yayBvciBzdHVkeSBzY2hlZHVsZS4=",
+          "text": "You find it challenging to maintain a consistent work or study schedule."
+        }
+      ],
+      "Additional Traits (General Emotional Stability or Energy)": [
+        {
+          "id": "WW91ciBtb29kIGNhbiBjaGFuZ2UgdmVyeSBxdWlja2x5Lg==",
+          "text": "Your mood can change very quickly."
+        },
+        {
+          "id": "WW91IHJhcmVseSBzZWNvbmQtZ3Vlc3MgdGhlIGNob2ljZXMgdGhhdCB5b3UgaGF2ZSBtYWRlLg==",
+          "text": "You rarely second-guess the choices that you have made."
+        }
+      ]
+    }
+  }
+  
