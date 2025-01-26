@@ -2,12 +2,21 @@ from fastapi import FastAPI
 import requests
 from constants import *
 import re
+from fastapi.middleware.cors import CORSMiddleware
 # import requests
 import base64
 import json
 import results
 
 app = FastAPI()
+app.add_middleware(
+    CORSMiddleware,
+    allow_origins=['http://localhost:5173'],
+    allow_credentials=True,
+    allow_methods=["*"],
+    allow_headers=["*"],
+)
+
 
 
 @app.get("/")
