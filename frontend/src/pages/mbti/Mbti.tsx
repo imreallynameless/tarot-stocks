@@ -1,5 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import QuestionBox from '../../components/QuestionBox'; // Import the QuestionBox component
+import {Button1} from '../../constants/Buttons'
+import { Link, useNavigate } from 'react-router-dom'
 import './App.css'
 
 type Option = {
@@ -14,6 +16,7 @@ type QuizItem = {
 };
 
 const Mbti: React.FC = () => {
+  const navigate = useNavigate();
   const [quizData, setQuizData] = useState<QuizItem[]>([]);
   const [error, setError] = useState<string | null>(null);
   const [loading, setLoading] = useState<boolean>(true); // Loading state
@@ -77,20 +80,12 @@ const Mbti: React.FC = () => {
         )}
       </div>
       <div style={{ textAlign: 'center', marginTop: '20px' }}>
-        <button
-          onClick={handleSubmit}
-          disabled={!allAnswered} // Disable button until all questions are answered
-          style={{
-            padding: '10px 20px',
-            cursor: allAnswered ? 'pointer' : 'not-allowed',
-            border: '1px solid #ccc',
-            borderRadius: '5px',
-            backgroundColor: allAnswered ? '#007bff' : '#ccc',
-            color: '#fff',
-          }}
-        >
-          Submit Answers
-        </button>
+          <Button1 className='justify-self: center; cursor: pointer;'
+          onClick={() =>
+            navigate("/results")
+          }>
+            Submit Answers
+          </Button1>
       </div>
       {showAnswers && (
         <div style={{ marginTop: '20px', textAlign: 'center', maxHeight: '40vh', overflowY: 'auto' }}>
