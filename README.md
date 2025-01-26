@@ -1,4 +1,4 @@
-# tarot-stocks
+# Investology
 Investing with personality
 
 Youtube Demo:
