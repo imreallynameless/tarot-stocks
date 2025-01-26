@@ -44,21 +44,26 @@ const Mbti: React.FC = () => {
 
   // Handle answer selection for each question
   const handleSelectAnswer = (id: string, value: number) => {
-    setSelectedAnswers((prevAnswers) => ({
-      ...prevAnswers,
-      [id]: value,
-    }));
+    setSelectedAnswers((prevAnswers) => {
+      const updatedAnswers = { ...prevAnswers, [id]: value };
+      console.log('Updated selectedAnswers:', updatedAnswers); // Debugging
+      return updatedAnswers;
+    });
   };
 
   // Submit answers and navigate to the results page
   const handleSubmit = async () => {
-    // Check if all questions are answered
-    const allAnswered = quizData.every((quizItem) => selectedAnswers[quizItem.id] !== null);
+    // Extract only answered questions
+    const answeredQuestions = Object.entries(selectedAnswers).filter(
+      ([, value]) => value !== null
+    );
 
-    if (!allAnswered) {
-      alert('Please answer all questions before submitting.');
+    if (answeredQuestions.length === 0) {
+      alert('Please answer at least one question before submitting.');
       return;
     }
+
+    console.log('Selected answers for submission:', selectedAnswers); // Debugging
 
     try {
       const response = await fetch('http://127.0.0.1:8000/get_results', {
@@ -74,11 +79,12 @@ const Mbti: React.FC = () => {
       }
 
       const data = await response.json();
+      console.log('Backend response:', data); // Debugging
 
-      // Save data to local storage for persistence
+      // Save results to local storage for persistence
       localStorage.setItem('personalityData', JSON.stringify(data));
 
-      // Navigate to results with the data
+      // Navigate to results page with data
       navigate('/results', { state: { personalityData: data } });
     } catch (error) {
       console.error('Error submitting answers:', error);
@@ -99,9 +105,8 @@ const Mbti: React.FC = () => {
           quizData.map((quizItem) => (
             <QuestionBox
               key={quizItem.id}
-              question={quizItem.text}
-              options={quizItem.options}
               id={quizItem.id}
+              question={quizItem.text}
               onSelectAnswer={handleSelectAnswer}
             />
           ))
@@ -169,4 +174,3 @@ const SubmitButton = styled.button`
     opacity: 0.9;
   }
 `;
-
