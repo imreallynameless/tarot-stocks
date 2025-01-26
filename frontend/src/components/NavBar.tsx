@@ -10,7 +10,6 @@ const NavBar = () => {
   return (
     <OuterCountainer>
       <NavBarContainer onMouseLeave={() => setHoveredTab(0)}>
-        <SliderBlock location={hoveredTab}/>
         <NavBarSubContainer>
           <Link 
             to={"/"} 
@@ -93,76 +92,5 @@ const NavBarSubContainer = styled.div`
   justify-self: start;
   z-index: 2;
 `;
-
-interface LocationProps {
-  location: number,
-}
-
-const Sliding1 = keyframes`
-  0% {
-    transform: translateX(0) scale(0.65);
-  }
-  100% {
-    transform: translateX(-29.5rem) scale(1);
-  }
-`
-const Sliding2 = keyframes`
-  0% {
-    transform: translateX(0) scale(0.65);
-  }
-  100% {
-    transform: translateX(-19.5rem) scale(1);
-  }
-`;
-const Sliding3 = keyframes`
-  0% {
-    transform: translateX(0) scale(0.65);
-  }
-  100% {
-    transform: translateX(-24.5rem) scale(1);
-  }
-`
-const Sliding4 = keyframes`
-  0% {
-    transform: translateX(0) scale(0.65);
-  }
-  100% {
-    transform: translateX(-17rem) scale(1);
-  }
-`;
-const SliderBlock = styled.div<LocationProps>`
-  background: linear-gradient(to bottom, rgba(100, 100, 100, 0.3), rgba(150, 150, 150, 0.3));
-  width: 80px;
-  height: 3rem;
-  position: absolute;
-  z-index: 1;
-  border-radius: 12px;
-  @media (min-width: 80em) {
-    ${(props) => {
-      if (props.location === 1) {
-        return css`animation: ${Sliding3} 300ms ease-in forwards;`;
-      } else if (props.location === 2) {
-        return css`animation: ${Sliding4} 300ms ease-in forwards; width: 100px;`;
-      } else {
-        return css`transform: translateX(0); display: none;`;
-      }
-    }}
-  }
-  @media (min-width: 93em) {
-    ${(props) => {
-      if (props.location === 1) {
-        return css`animation: ${Sliding1} 300ms ease-in forwards;`;
-      } else if (props.location === 2) {
-        return css`animation: ${Sliding2} 300ms ease-in forwards; width: 120px;`;
-      } else {
-        return css`transform: translateX(0); display: none;`;
-      }
-    }}
-  }
-  @media (max-width: 82em) {
-    display: none;
-  }
-
-`
 
 export default NavBar
