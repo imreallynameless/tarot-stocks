@@ -4,7 +4,7 @@ Investing with personality
 Youtube Demo:
 https://www.youtube.com/watch?v=mT7a21hOYwo
 
-to run
+# to run server
 
 cd into the backend directory
 
@@ -16,6 +16,7 @@ pip install "fastapi[standard]"
 
 fastapi dev main.py
 
+# to run client
 and cd into the frontend directory
 
 npm i
