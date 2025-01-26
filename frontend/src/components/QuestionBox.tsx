@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 
 interface QuestionBoxProps {
   question: string;
+  
 }
 
 const QuestionBox: React.FC<QuestionBoxProps> = ({ question }) => {

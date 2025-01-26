@@ -3,6 +3,7 @@ import QuestionBox from '../../components/QuestionBox'; // Import the QuestionBo
 import {Button1} from '../../constants/Buttons'
 import { Link, useNavigate } from 'react-router-dom'
 import './App.css'
+import styled from '@emotion/styled';
 
 type Option = {
   text: string;
@@ -62,39 +63,112 @@ const Mbti: React.FC = () => {
 
   return (
     
-    <div style={{ minHeight: '100vh', padding: '20px' , paddingTop: '8rem'}}>
+    <MainSection>
       {error && <p>{error}</p>}
-      <div style={{ maxHeight: '80vh', overflowY: 'auto' }}>
+      <QuestionSection>
         {quizData.length > 0 ? (
           quizData.map((quizItem) => (
             <QuestionBox
               key={quizItem.id}
               question={quizItem.text}
-              options={quizItem.options}
-              id={quizItem.id}
-              onSelectAnswer={handleSelectAnswer}
+            //   options={quizItem.options}
+            //   id={quizItem.id}
+            //   onSelectAnswer={handleSelectAnswer}
             />
           ))
         ) : (
           <p>No quiz data available.</p>
         )}
-      </div>
-      <div style={{ textAlign: 'center', marginTop: '20px' }}>
-          <Button1 className='justify-self: center; cursor: pointer;'
-          onClick={() =>
-            navigate("/results")
-          }>
+      </QuestionSection>
+      <SubmitSection >
+          <SubmitButton
+            onClick={() =>
+                navigate("/results")
+            }>
             Submit Answers
-          </Button1>
-      </div>
+          </SubmitButton>
+      </SubmitSection>
       {showAnswers && (
         <div style={{ marginTop: '20px', textAlign: 'center', maxHeight: '40vh', overflowY: 'auto' }}>
           <h3>Selected Answers:</h3>
           <pre>{JSON.stringify(selectedAnswers, null, 2)}</pre>
         </div>
       )}
-    </div>
+    </MainSection>
   );
 };
+
+const MainSection = styled.div`
+    display: flex;
+    flex-direction: column;
+    padding-top: 50px;
+    padding-bottom: 50px;
+`
+const QuestionSection = styled.div`
+    padding-botom: 10rem;
+    padding-top: 5rem;
+    overflow-y: scroll;
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+`
+
+const SubmitSection = styled.div`
+  position: fixed;
+  bottom: 0px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100vw;
+  padding-top: 30px;
+  padding-bottom: 30px;
+  height: 50px;
+  background-color: rgb(40, 40, 40);
+`
+
+const SubmitButton = styled.div`
+background-image: linear-gradient(to bottom right, #44A2B1, #C15A93);
+  overflow: hidden;
+  position: relative;
+  height: 22px;
+  cursor: pointer;
+  justify-content: center;
+  align-items: center;
+  display: flex;
+  color: white;
+  font-family: Helvetica Now Display;
+  font-size: 17px;
+  border-radius: 10px;
+  font-weight: 500;
+  padding: 10px;
+  padding-left: 30px;
+  padding-right: 30px;
+  ${(props) => props.className}
+
+  span {
+    z-index: 20;
+  }
+
+  &:after {
+    background: #fff;
+    content: "";
+    height: 155px;
+    left: -75px;
+    opacity: .2;
+    position: absolute;
+    top: -50px;
+    transform: rotate(35deg);
+    transition: all 550ms cubic-bezier(0.19, 1, 0.22, 1);
+    width: 50px;
+  }
+
+  :hover {
+    
+    &:after {
+      left: 120%;
+      transition: all 550ms cubic-bezier(0.19, 1, 0.22, 1);
+    }
+  }
+`
 
 export default Mbti;
