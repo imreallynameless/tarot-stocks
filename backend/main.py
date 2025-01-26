@@ -2,7 +2,7 @@ from fastapi import FastAPI
 import requests
 from constants import *
 import re
-import requests
+# import requests
 import base64
 import json
 import results
