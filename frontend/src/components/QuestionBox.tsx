@@ -21,10 +21,10 @@ const QuestionBox: React.FC<QuestionBoxProps> = ({ question }) => {
   };
 
   return (
-    <div style={{ textAlign: 'center', fontFamily: 'Arial, sans-serif' }}>
-      <h2 style={{ marginBottom: '20px' }}>{question}</h2>
+    <div style={{ textAlign: 'center' }}>
+      <h2 style={{ marginBottom: '20px', color:'white' }}>{question}</h2>
       <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', gap: '10px' }}>
-        <span style={{ marginRight: '20px', fontWeight: 'bold' }}>Agree</span>
+        <span style={{ marginRight: '20px', fontWeight: 'bold', color: 'white' }}>Agree</span>
         {[...Array(7)].map((_, index) => {
           const circleSize = getCircleSize(index);
           const selectedSize = selectedValue === index ? circleSize : circleSize; // Grow selected circle
@@ -50,7 +50,7 @@ const QuestionBox: React.FC<QuestionBoxProps> = ({ question }) => {
             </div>
           );
         })}
-        <span style={{ marginLeft: '20px', fontWeight: 'bold' }}>Disagree</span>
+        <span style={{ marginLeft: '20px', fontWeight: 'bold',color: 'white' }}>Disagree</span>
       </div>
     </div>
   );

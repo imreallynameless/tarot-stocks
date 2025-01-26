@@ -59,7 +59,7 @@ const Mbti: React.FC = () => {
 
   return (
     
-    <div style={{ backgroundColor: '#fff', minHeight: '100vh', padding: '20px' , paddingTop: '8rem'}}>
+    <div style={{ minHeight: '100vh', padding: '20px' , paddingTop: '8rem'}}>
       {error && <p>{error}</p>}
       <div style={{ maxHeight: '80vh', overflowY: 'auto' }}>
         {quizData.length > 0 ? (
