@@ -4,7 +4,9 @@ import Background2 from "../../assets/background2.png";
 import Background1 from "../../assets/background1.png";
 // import Demo from './Demo';
 import { Button1 } from '../../constants/Buttons';
+import { useNavigate } from 'react-router-dom';
 const Hero = () => {
+  const navigate = useNavigate();
   return (
     <HeroContainer>
       <TextContainer>
@@ -14,7 +16,10 @@ const Hero = () => {
         <p>
           Get stocks recommended based on your MBTI 
         </p>
-        <Button1 className='margin-top: 25px; align-self: center; width: 160px; height: 40px;'>
+        <Button1 className='margin-top: 25px; align-self: center; width: 160px; height: 40px;'
+        onClick={() =>
+          navigate("/mbti")
+        }> 
           Do the test
         </Button1>
       </TextContainer>
