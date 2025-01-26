@@ -42,7 +42,7 @@ const NavBar = () => {
         <NavBarSubContainer>
           <Button1 className='justify-self: end; cursor: pointer;'
           onClick={() =>
-            navigate("/MBTI")
+            navigate("/mbti")
           }>
             MBTI
           </Button1>
