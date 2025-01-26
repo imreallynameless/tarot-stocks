@@ -22,7 +22,7 @@ const NavBar = () => {
             </Label2>
           </Link>
           <Link 
-            to={"/connect"} 
+            to={"/mbti"} 
             className='link' 
             onMouseOver={() => setHoveredTab(2)}
           >
