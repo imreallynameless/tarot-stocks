@@ -11,7 +11,7 @@ const Hero = () => {
     <HeroContainer>
       <TextContainer>
         <h1>
-          Tarot Stocks.
+          Investology.
           </h1>
         <p>
           Get stocks recommended based on your MBTI 

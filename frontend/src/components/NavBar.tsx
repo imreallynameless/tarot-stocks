@@ -35,7 +35,7 @@ const NavBar = () => {
           className="margin-left: 7rem; margin-right: 7rem; color: rgba(255, 255, 255, 0.95); cursor: pointer;" 
           onClick={() => navigate("/")}
         >
-            stocks.
+            investology.
         </Label1>
 
         <NavBarSubContainer>
