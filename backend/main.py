@@ -2,9 +2,10 @@ from fastapi import FastAPI
 import requests
 from constants import *
 import re
-import requests
+# import requests
 import base64
 import json
+import results
 
 app = FastAPI()
 
@@ -65,10 +66,24 @@ async def get_quiz():
 
     return formatted_questions
 
-@app.get("/get_results/{mbti}")
-async def get_results(mbti):
+@app.get("/get_results/{answers}")
+async def get_results(answers):
     E, S, T, J = 0, 0, 0, 0
 
+    for question_key, response in answers.items():
+        action = results.RESULT[question_key]
 
+        if action[0] == '-':
+            response = -response
 
+        if action[1] == 'e':
+            E += response
+        if action[1] == 's':
+            S += response
+        if action[1] == 't':
+            T += response
+        if action[1] == 'j':
+            J += response
+
+    return results.INVESTMENT_PROFILES[(E, S, T, J)] if (E, S, T, J) in results.INVESTMENT_PROFILES else results.INVESTMENT_PROFILES[(5, 1, 3, 4)]
     
